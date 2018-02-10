@@ -8,14 +8,14 @@ ___
 ## **Download** 
 -Not ready yet.
 
-### TowerRush Alpha is open-source under the [GNU General Public License v3.0](http://www.gnu.org/licenses/gpl-3.0.en.html).
+### Deinde is open-source under the [GNU General Public License v3.0](http://www.gnu.org/licenses/gpl-3.0.en.html).
 ___
 ### **CURRENT STAGE: BASIC MECHANICS**
 ### **CURRENT FOCUS: Designing Game Mechanics**
 
 ### A revolutionary endless platformer.
 
-### [Click here](https://github.com/BenCuan/unity-game/blob/master/CHANGELOG.md) to view the changelog
+### [Click here](https://github.com/2TBS/Deinde/blob/master/CHANGELOG.md) to view the changelog
 
 ## Planned Features
   -Endless Platformer
