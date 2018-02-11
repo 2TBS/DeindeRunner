@@ -8,7 +8,7 @@ echo 'Downloading from http://download.unity3d.com/download_unity/38b4efef76f0/M
 curl -o UnityWindowsSupport.pkg http://beta.unity3d.com/download/2c4679632cfb/MacEditorTargetInstaller/UnitySetup-Windows-Mono-Support-for-Editor-2018.1.0b6.pkg
 
 echo 'Downloading from http://download.unity3d.com/download_unity/38b4efef76f0/MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-5.5.0f3.pkg'
-curl -o UnityLinuxSupport.pkg https://beta.unity3d.com/download/2c4679632cfb/MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-2018.1.0b6.pkg
+curl -o UnityLinuxSupport.pkg http://beta.unity3d.com/download/2c4679632cfb/MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-2018.1.0b6.pkg
 
 echo 'Installing Unity.pkg'
 sudo installer -dumplog -package Unity.pkg -target /
