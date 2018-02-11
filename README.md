@@ -1,8 +1,8 @@
 # Deinde
-#### Build Status: Latest (develop branch) [Master Branch](https://travis-ci.org/2TBS/Deinde.svg?branch=master)
+#### Build Status: Latest (develop branch) [![Build Status](https://travis-ci.org/2TBS/Deinde.svg?branch=master)](https://travis-ci.org/2TBS/Deinde)
 
 
-#### Build Status: Stable (master branch) [Develop Branch](https://travis-ci.org/2TBS/Deinde.svg?branch=develop)
+#### Build Status: Stable (master branch) [![Build Status](https://travis-ci.org/2TBS/Deinde.svg?branch=develop)](https://travis-ci.org/2TBS/Deinde)
 
 ___
 ## **Download** 
