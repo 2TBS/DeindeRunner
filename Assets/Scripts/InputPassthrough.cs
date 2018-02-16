@@ -8,18 +8,21 @@ public class InputPassthrough : MonoBehaviour {
 
 	private bool jumpRequest;
 
+	[SerializeField]
+    private InputManager input;
+
 	void Awake() {
 		player = GetComponent<PlayerMovement>();
 	}
 
 	void Update() {
 		if(!jumpRequest) {
-			jumpRequest = Input.GetButtonDown("Jump");
+			jumpRequest = input.GetKeyDown("Jump");
 		}
 	}
 
 	void FixedUpdate() {
-		float h = Input.GetAxis("Horizontal");
+		float h = input.GetAxis("Horizontal");
 		player.Move(h, jumpRequest);
 		jumpRequest = false;
 	}

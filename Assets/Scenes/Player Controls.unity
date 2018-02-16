@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59138a517b54bbc49bbecd7e5bb02090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 1425575322}
 --- !u!212 &157120519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallMult: 3
   lowJumpMult: 2
+  input: {fileID: 1425575322}
 --- !u!1 &401931805
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +710,7 @@ GameObject:
   - component: {fileID: 1425575320}
   - component: {fileID: 1425575319}
   - component: {fileID: 1425575318}
+  - component: {fileID: 1425575322}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -778,3 +781,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425575322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425575317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af22840b2170bae4c8db7ae3aa29f45c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlList: 
+  controlListNames:
+  - Forward
+  - Back
+  - Left
+  - Right
+  - Jump
+  - Run
+  - Crouch
+  - Inventory
+  configPath: 
+  textList: []
+  infoText: {fileID: 0}

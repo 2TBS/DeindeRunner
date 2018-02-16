@@ -9,6 +9,9 @@ public class BetterGravity : MonoBehaviour {
 	
 	Rigidbody2D rb;
 
+	[SerializeField]
+    private InputManager input;
+
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 	}
@@ -16,7 +19,7 @@ public class BetterGravity : MonoBehaviour {
 	void FixedUpdate() {
 		if(rb.velocity.y < 0) {
 			rb.gravityScale = fallMult;
-		} else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
+		} else if (rb.velocity.y > 0 && !input.GetKey("Jump")) {
 				rb.gravityScale = lowJumpMult;
 		} else {
 			rb.gravityScale = 1;
