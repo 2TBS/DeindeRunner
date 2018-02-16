@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 157120519}
   - component: {fileID: 157120522}
   - component: {fileID: 157120521}
-  - component: {fileID: 157120518}
   - component: {fileID: 157120523}
+  - component: {fileID: 157120518}
   - component: {fileID: 157120517}
   m_Layer: 8
   m_Name: Player
@@ -142,9 +142,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 157120516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392f8d9fddeaac14ca28a1d18073dce4, type: 3}
+  m_Script: {fileID: 11500000, guid: e1db173bd1236224486a59122b7846ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 8
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &157120518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,11 +157,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 157120516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28d98d4f11722647a91204c5fbc396c, type: 3}
+  m_Script: {fileID: 11500000, guid: 59138a517b54bbc49bbecd7e5bb02090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMult: 2.5
-  lowJumpMult: 2
 --- !u!212 &157120519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 157120516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.16, y: 0.07, z: 0}
+  m_LocalPosition: {x: -5.16, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -269,13 +271,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 157120516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad764e8382ece4449514b3274a610bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a64c0db0529a9d4fb7c2163990e67e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  fallMult: 3
+  lowJumpMult: 2
 --- !u!1 &401931805
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 401931805}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 936db4cabed5b144ea2152aa309d251a, type: 2}
+  m_Material: {fileID: 6200000, guid: 7e819a55edb121849a9b7fa1f4b89b13, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -401,7 +401,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 636651942}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 936db4cabed5b144ea2152aa309d251a, type: 2}
+  m_Material: {fileID: 6200000, guid: 7e819a55edb121849a9b7fa1f4b89b13, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -622,7 +622,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1183063954}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 936db4cabed5b144ea2152aa309d251a, type: 2}
+  m_Material: {fileID: 6200000, guid: 7e819a55edb121849a9b7fa1f4b89b13, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
