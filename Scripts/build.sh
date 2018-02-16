@@ -1,5 +1,5 @@
 #! /bin/sh
-
+rvm get stable
 project="Deinde"
 projectWin="Windows"
 projectMac="OS X"
