@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	private float maxSpeed = 7.0f;
-	private float speed = 4.0f;
+	[Range(1, 10)] public float speed = 5.0f;
 	[Range(1, 10)] public float jumpForce;
 	private Rigidbody2D rb;
 	Vector2 playerSize;
