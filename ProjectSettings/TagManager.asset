@@ -7,6 +7,7 @@ TagManager:
   - Environment
   - SetControlsButton
   - Damagable
+  - Projectile
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,8 @@ public class InputPassthrough : MonoBehaviour {
 	private PlayerMovement player;
 
 	private bool jumpRequest;
+	private bool shootRequest;
+	private float h;
 
 	[SerializeField]
     private InputManager input;
@@ -16,14 +18,19 @@ public class InputPassthrough : MonoBehaviour {
 	}
 
 	void Update() {
+		// Update Input
 		if(!jumpRequest) {
-			jumpRequest = input.GetKeyDown("Jump");
+			jumpRequest = Input.GetButtonDown("Jump");
 		}
+		shootRequest = Input.GetButtonDown("Shoot");
+		h = Input.GetAxis("Horizontal");
 	}
 
 	void FixedUpdate() {
-		float h = input.GetAxis("Horizontal");
+		// Move player
 		player.Move(h, jumpRequest);
+		if(shootRequest)
+			player.Shoot();
 		jumpRequest = false;
 	}
 

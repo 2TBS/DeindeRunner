@@ -145,10 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1db173bd1236224486a59122b7846ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   jumpForce: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  projectile: {fileID: 4580069780052834, guid: dbe23669554278e4ca021011c6ce20bb, type: 2}
+  firePower: 15
 --- !u!114 &157120518
 MonoBehaviour:
   m_ObjectHideFlags: 0

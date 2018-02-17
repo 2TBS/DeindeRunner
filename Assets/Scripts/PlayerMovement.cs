@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ public class PlayerMovement : MonoBehaviour {
 	public LayerMask groundLayer;
 	private bool grounded;
 
+
+	[SerializeField] private Transform projectile;
+	[Range(0, 15)] public float firePower = 15.0f;
+
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 		playerSize = GetComponent<BoxCollider2D>().size;
@@ -26,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
 	}
 
-	public void Move(float move, bool jump) {
+    public void Move(float move, bool jump) {
 		if(!WillHitWall(move)) {
 			float t = rb.velocity.x / maxSpeed;
 			
@@ -49,6 +54,14 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 	}
+	
+    public void Shoot() {
+        Transform clone = Instantiate(projectile, new Vector2(transform.position.x + (playerSize.x * 2f/3f), transform.position.y), 
+			projectile.rotation);
+		Debug.Log(firePower);
+		clone.GetComponent<Rigidbody2D>().velocity = Vector2.right * firePower;
+		Destroy(clone.gameObject, 10.0f);
+    }
 
 	private void Jump() {
 		GetComponent<Rigidbody2D>().gravityScale = 1;

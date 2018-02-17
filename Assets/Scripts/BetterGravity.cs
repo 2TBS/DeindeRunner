@@ -12,14 +12,20 @@ public class BetterGravity : MonoBehaviour {
 	[SerializeField]
     private InputManager input;
 
+	private bool jumpButtonDown;
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 	}
 
+	void Update() {
+		jumpButtonDown = Input.GetButton("Jump");
+	}
+
+	// Don't read Inputs in FixedUpdate() and don't do physics in Update()
 	void FixedUpdate() {
 		if(rb.velocity.y < 0) {
 			rb.gravityScale = fallMult;
-		} else if (rb.velocity.y > 0 && !input.GetKey("Jump")) {
+		} else if (rb.velocity.y > 0 && !jumpButtonDown) {
 				rb.gravityScale = lowJumpMult;
 		} else {
 			rb.gravityScale = 1;
