@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour {
     public void Shoot() {
         Transform clone = Instantiate(projectile, new Vector2(transform.position.x + (playerSize.x * 2f/3f), transform.position.y), 
 			projectile.rotation);
-		Debug.Log(firePower);
 		clone.GetComponent<Rigidbody2D>().velocity = Vector2.right * firePower;
 		Destroy(clone.gameObject, 10.0f);
     }
