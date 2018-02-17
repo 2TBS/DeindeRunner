@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MM_Helpers : MonoBehaviour {
 
     public GameObject optionsPanel;
-
+    int x = 1; 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -24,5 +24,9 @@ public class MM_Helpers : MonoBehaviour {
 
     public void ToggleOptions() {
         optionsPanel.SetActive(!optionsPanel.activeSelf);
+    }
+    public void GameOver()
+    {
+        SceneManager.LoadScene(x);
     }
 }
