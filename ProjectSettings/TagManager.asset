@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Environment
   - SetControlsButton
+  - Damagable
   layers:
   - Default
   - TransparentFX
