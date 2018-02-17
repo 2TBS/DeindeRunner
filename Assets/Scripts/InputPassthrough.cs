@@ -13,7 +13,6 @@ public class InputPassthrough : MonoBehaviour {
 
 	void Awake() {
 		player = GetComponent<PlayerMovement>();
-		input = new InputManager();
 	}
 
 	void Update() {
