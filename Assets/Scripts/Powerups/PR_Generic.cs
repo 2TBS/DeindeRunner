@@ -18,6 +18,8 @@ public class PR_Generic : MonoBehaviour {
 	public Powerup prtype;
 	//public Collider2D collider;
 
+	[SerializeField] private float speedIncrease = 2;
+
 	// Use this for initialization
 	void Start () {
 		//collider = gameObject.GetComponent<Collider2D>();
@@ -34,7 +36,7 @@ public class PR_Generic : MonoBehaviour {
 			//Add the powerup code in each case statement
 			case Powerup.Speed:{
 				Debug.Log("How Speedy?");
-				player.GetComponent<PlayerMovement>().speed = 7; //Sets the players speed to a certain int
+				player.GetComponent<PlayerMovement>().speed += speedIncrease; //Sets the players speed to a certain int
 				Destroy(gameObject);
 				break;
 			}
