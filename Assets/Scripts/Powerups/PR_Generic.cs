@@ -25,15 +25,16 @@ public class PR_Generic : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "Player")
-            ApplyEffects();
+            ApplyEffects(coll.gameObject);
     }
 
-	public void ApplyEffects(){
+	public void ApplyEffects(GameObject player){
 		switch (prtype)
 		{	
 			//Add the powerup code in each case statement
 			case Powerup.Speed:{
 				Debug.Log("How Speedy?");
+				player.GetComponent<PlayerMovement>().speed = 7; //Sets the players speed to a certain int
 				Destroy(gameObject);
 				break;
 			}
