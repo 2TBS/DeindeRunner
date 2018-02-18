@@ -23,7 +23,7 @@ public class PR_Generic : MonoBehaviour {
 		//collider = gameObject.GetComponent<Collider2D>();
 	}
 	
-	void OnCollisionEnter2D(Collision2D coll) {
+	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "Player")
             ApplyEffects();
     }
