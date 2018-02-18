@@ -17,9 +17,8 @@ public class Destructable : MonoBehaviour {
 	void Update() {
 		if(health < 0)
 			health = 0;
-		float lerp = Mathf.Lerp(0, 255, (float) health / (float) MAX_HEALTH);
-		spriteRenderer.color = new Color(255.0f - lerp, lerp	, 0.0f);
-
+		float lerp = Mathf.Lerp(0, 255, (float) (health - 1.0f)/ (float) (MAX_HEALTH - 1.0f));
+		spriteRenderer.color = new Color(255.0f - lerp, lerp, 0.0f);
 		if(health == 0)
 			Destroy(gameObject);
 	}
