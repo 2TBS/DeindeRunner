@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class InputPassthrough : MonoBehaviour {
 
-	private PlayerMovement playerMovement;
-	private PlayerDestruction playerDestruction;
+	private Player player;
 	private bool jumpRequest;
 	private bool shootRequest;
 	private float h;
@@ -14,8 +13,7 @@ public class InputPassthrough : MonoBehaviour {
     private InputManager input;
 
 	void Awake() {
-		playerMovement = GetComponent<PlayerMovement>();
-		playerDestruction = GetComponent<PlayerDestruction>();
+		player = GetComponent<Player>();
 	}
 
 	void Update() {
@@ -29,9 +27,9 @@ public class InputPassthrough : MonoBehaviour {
 
 	void FixedUpdate() {
 		// Move player
-		playerMovement.Move(h, jumpRequest);
+		player.Move(h, jumpRequest);
 		if(shootRequest)
-			playerDestruction.Shoot();
+			player.Shoot();
 		jumpRequest = false;
 	}
 

@@ -3,23 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	private float maxSpeed = 7.0f;
 	[Range(1, 10)] public float speed = 5.0f;
 	[Range(1, 10)] public float jumpForce;
 	private Rigidbody2D rb;
-	public Vector2 playerSize;
-	public Vector2 boxSize;
+	private Vector2 playerSize;
+	private Vector2 boxSize;
 	private float groundCheckMargin = 0.05f;
 	public LayerMask groundLayer;
 	public bool speedPowerUpOn;
 	private bool grounded;
 
+	[SerializeField] private Transform projectile;
+	[Range(0, 15)] public float firePower = 15.0f;
+	private float time;
+	public bool destructionPowerUpOn;
+
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 		playerSize = GetComponent<BoxCollider2D>().size;
 		boxSize = new Vector2(playerSize.x, groundCheckMargin);
+		destructionPowerUpOn = false;
+		time = 0;
 	}
 
 	void FixedUpdate() {
@@ -29,6 +36,17 @@ public class PlayerMovement : MonoBehaviour {
 
 		//Add timer for powerup
 	}
+
+	/*void Update() {
+		if(destructionPowerUpOn) {
+			time += Time.deltaTime;
+			if(time > seconds) {
+				time = 0;
+				//Set Destruction back to OG Destruction
+			}
+		}
+		else {time = 0;}
+	}*/
 
     public void Move(float move, bool jump) {
 		if(!WillHitWall(move)) {
@@ -83,8 +101,20 @@ public class PlayerMovement : MonoBehaviour {
 		return hitWall;
 	}
 
+	public void Shoot() {
+        Transform clone = Instantiate(projectile, new Vector2(transform.position.x + (playerSize.x * 2f/3f), transform.position.y), 
+			projectile.rotation);
+		clone.GetComponent<Rigidbody2D>().velocity = Vector2.right * firePower;
+		Destroy(clone.gameObject, 10.0f);
+    }
+
+
 	public void PowerUpSpeed(float speedIncrease, float duration) {
 		speed += speedIncrease;
+	}
+
+	public void PowerUpDestruction(float destructionIncrease, float duration) {
+		//destruction += destructionIncrease;
 	}
 
 }

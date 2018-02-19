@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 50419128593518250}
   - component: {fileID: 114315328854276310}
   - component: {fileID: 114540167935035682}
-  - component: {fileID: 114937025261007070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,24 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
---- !u!114 &114937025261007070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264179689536766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1db173bd1236224486a59122b7846ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  jumpForce: 8
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  projectile: {fileID: 4580069780052834, guid: dbe23669554278e4ca021011c6ce20bb, type: 2}
-  firePower: 15
 --- !u!212 &212762636425689806
 SpriteRenderer:
   m_ObjectHideFlags: 1

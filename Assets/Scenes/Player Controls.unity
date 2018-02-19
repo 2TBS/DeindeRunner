@@ -226,12 +226,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 583275879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073199dae9fef1940a37bc89cc1dbf06, type: 3}
+  m_Script: {fileID: 11500000, guid: e282861fb92138740b9e66e42559ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionPowerUpOn: 0
+  speed: 8
+  jumpForce: 8
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  speedPowerUpOn: 0
   projectile: {fileID: 4580069780052834, guid: dbe23669554278e4ca021011c6ce20bb, type: 2}
   firePower: 15
+  destructionPowerUpOn: 0
 --- !u!1 &636651942
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +352,7 @@ GameObject:
   - component: {fileID: 959355463}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Damagable
+  m_TagString: Damageable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,16 +758,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114540167935035682, guid: 958eb9561d988e846b9d46d0bc5587f7,
-        type: 2}
-      propertyPath: input
-      value: 
-      objectReference: {fileID: 1425575322}
     - target: {fileID: 114315328854276310, guid: 958eb9561d988e846b9d46d0bc5587f7,
         type: 2}
       propertyPath: input
       value: 
       objectReference: {fileID: 1425575322}
-    m_RemovedComponents: []
+    - target: {fileID: 114540167935035682, guid: 958eb9561d988e846b9d46d0bc5587f7,
+        type: 2}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1425575322}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 958eb9561d988e846b9d46d0bc5587f7, type: 2}
   m_IsPrefabParent: 0

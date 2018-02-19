@@ -24,7 +24,6 @@ public class Destructable : MonoBehaviour {
 	}
 
 	public void Damage(int damage) {
-		Debug.Log("here");
 		health -= damage;
 	}
 

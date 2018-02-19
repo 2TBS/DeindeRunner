@@ -39,17 +39,17 @@ public class PR_Generic : MonoBehaviour {
 		{	
 			//Add the powerup code in each case statement
 			case Powerup.Speed:{
-				Debug.Log("OG Speed: " + player.GetComponent<PlayerMovement>().speed);
-				player.GetComponent<PlayerMovement>().PowerUpSpeed(speedIncrease, duration);
-				//player.GetComponent<PlayerMovement>().speed += speedIncrease; //Sets the players speed to a certain int
+				Debug.Log("OG Speed: " + player.GetComponent<Player>().speed);
+				player.GetComponent<Player>().PowerUpSpeed(speedIncrease, duration);
+				//player.GetComponent<Player>().speed += speedIncrease; //Sets the players speed to a certain int
 				Debug.Log("Speed Increase: " + speedIncrease);
-				Debug.Log("New Speed: " + player.GetComponent<PlayerMovement>().speed);
+				Debug.Log("New Speed: " + player.GetComponent<Player>().speed);
 				Destroy(gameObject);
 				break;
 			}
 			case Powerup.Destroy:{
 				Debug.Log("OG Destruction: ");
-				player.GetComponent<PlayerDestruction>().PowerUpDestruction(destructionIncrease, duration);
+				player.GetComponent<Player>().PowerUpDestruction(destructionIncrease, duration);
 				Debug.Log("Destruction Increase: ");
 				Debug.Log("New Destruction: ");
 				Destroy(gameObject);
