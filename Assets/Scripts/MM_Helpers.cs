@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class MM_Helpers : MonoBehaviour {
 
-    public GameObject optionsPanel;
+    public Animator animator;
+    public bool optionsBool = false;
     int x = 1; 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -14,7 +15,7 @@ public class MM_Helpers : MonoBehaviour {
     /// </summary>
     void Start()
     {
-        optionsPanel.SetActive(false);
+        animator = GetComponent<Animator>();
     }
 
 	public void LoadLevel(string sceneName)
@@ -23,7 +24,14 @@ public class MM_Helpers : MonoBehaviour {
     }
 
     public void ToggleOptions() {
-        optionsPanel.SetActive(!optionsPanel.activeSelf);
+        if(optionsBool){
+            animator.SetFloat("SpeedMultiplier", -1.0f);
+        }
+        else{
+            animator.SetFloat("SpeedMultiplier", 1.0f);
+        }
+        optionsBool = !optionsBool;
+        animator.SetBool("Options", optionsBool);
     }
     public void GameOver()
     {
