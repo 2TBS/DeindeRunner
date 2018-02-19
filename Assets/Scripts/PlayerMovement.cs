@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector2 boxSize;
 	private float groundCheckMargin = 0.05f;
 	public LayerMask groundLayer;
+	public bool speedPowerUpOn;
 	private bool grounded;
-
 
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
 		grounded = false;
 		Vector2 boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
+
+		//Add timer for powerup
 	}
 
     public void Move(float move, bool jump) {
@@ -79,6 +81,10 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		return hitWall;
+	}
+
+	public void PowerUpSpeed(float speedIncrease, float duration) {
+		speed += speedIncrease;
 	}
 
 }

@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prtype: 0
   speedIncrease: 10
+  duration: 10
 --- !u!212 &212984859630807160
 SpriteRenderer:
   m_ObjectHideFlags: 1

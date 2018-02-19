@@ -229,6 +229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073199dae9fef1940a37bc89cc1dbf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destructionPowerUpOn: 0
+  projectile: {fileID: 4580069780052834, guid: dbe23669554278e4ca021011c6ce20bb, type: 2}
+  firePower: 15
 --- !u!1 &636651942
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +649,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

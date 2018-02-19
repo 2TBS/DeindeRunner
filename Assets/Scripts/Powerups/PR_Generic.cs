@@ -20,6 +20,10 @@ public class PR_Generic : MonoBehaviour {
 
 	[SerializeField] private float speedIncrease = 2;
 
+	[SerializeField] private float destructionIncrease = 2;
+
+	[SerializeField] private float duration;
+
 	// Use this for initialization
 	void Start () {
 		//collider = gameObject.GetComponent<Collider2D>();
@@ -36,7 +40,8 @@ public class PR_Generic : MonoBehaviour {
 			//Add the powerup code in each case statement
 			case Powerup.Speed:{
 				Debug.Log("OG Speed: " + player.GetComponent<PlayerMovement>().speed);
-				player.GetComponent<PlayerMovement>().speed += speedIncrease; //Sets the players speed to a certain int
+				player.GetComponent<PlayerMovement>().PowerUpSpeed(speedIncrease, duration);
+				//player.GetComponent<PlayerMovement>().speed += speedIncrease; //Sets the players speed to a certain int
 				Debug.Log("Speed Increase: " + speedIncrease);
 				Debug.Log("New Speed: " + player.GetComponent<PlayerMovement>().speed);
 				Destroy(gameObject);
@@ -44,9 +49,10 @@ public class PR_Generic : MonoBehaviour {
 			}
 			case Powerup.Destroy:{
 				Debug.Log("OG Destruction: ");
-				Destroy(gameObject);
+				player.GetComponent<PlayerDestruction>().PowerUpDestruction(destructionIncrease, duration);
 				Debug.Log("Destruction Increase: ");
 				Debug.Log("New Destruction: ");
+				Destroy(gameObject);
 				break;
 			}
 			default:{
