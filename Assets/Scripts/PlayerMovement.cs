@@ -9,15 +9,12 @@ public class PlayerMovement : MonoBehaviour {
 	[Range(1, 10)] public float speed = 5.0f;
 	[Range(1, 10)] public float jumpForce;
 	private Rigidbody2D rb;
-	Vector2 playerSize;
-	Vector2 boxSize;
+	public Vector2 playerSize;
+	public Vector2 boxSize;
 	private float groundCheckMargin = 0.05f;
 	public LayerMask groundLayer;
 	private bool grounded;
 
-
-	[SerializeField] private Transform projectile;
-	[Range(0, 15)] public float firePower = 15.0f;
 
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
@@ -55,12 +52,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	}
 	
-    public void Shoot() {
-        Transform clone = Instantiate(projectile, new Vector2(transform.position.x + (playerSize.x * 2f/3f), transform.position.y), 
-			projectile.rotation);
-		clone.GetComponent<Rigidbody2D>().velocity = Vector2.right * firePower;
-		Destroy(clone.gameObject, 10.0f);
-    }
+    
 
 	private void Jump() {
 		GetComponent<Rigidbody2D>().gravityScale = 1;
