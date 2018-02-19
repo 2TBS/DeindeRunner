@@ -8,6 +8,7 @@ TagManager:
   - SetControlsButton
   - Projectile
   - Damageable
+  - Ground
   layers:
   - Default
   - TransparentFX
