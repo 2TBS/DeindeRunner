@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 650039084}
   - component: {fileID: 650039083}
   - component: {fileID: 650039085}
-  - component: {fileID: 650039087}
   m_Layer: 8
   m_Name: Tilemap Sample Environment
   m_TagString: Ground
@@ -562,17 +561,6 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
---- !u!114 &650039087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 650039081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d17357c4e041f43947f2681ce35b3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1604250150
 GameObject:
   m_ObjectHideFlags: 0
