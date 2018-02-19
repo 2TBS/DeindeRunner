@@ -8,16 +8,18 @@ public class Sorter : MonoBehaviour {
 
 	///Used for sorting objects with integer names. Returns list or array of given type
 	public static List<T> sortByName<T> (GameObject [] array) {
-		for (int outer = 0; outer < array.Length - 1; outer++) {
-			for (int inner = 0; inner < array.Length-outer-1; inner++) {
-				if (Int32.Parse(array[inner].name) > Int32.Parse(array[inner + 1].name)) {
-					//swap array[inner] & array[inner+1]
-					GameObject temp = array[inner];
-					array[inner] = array[inner + 1];
-					array[inner + 1] = temp;
-				}
-			}
-		}
+		// for (int outer = 0; outer < array.Length - 1; outer++) {
+		// 	for (int inner = 0; inner < array.Length-outer-1; inner++) {
+		// 		if (Int32.Parse(array[inner].name) > Int32.Parse(array[inner + 1].name)) {
+		// 			//swap array[inner] & array[inner+1]
+		// 			GameObject temp = array[inner];
+		// 			array[inner] = array[inner + 1];
+		// 			array[inner + 1] = temp;
+		// 		}
+		// 	}
+		// }
+
+		Quick_Sort(array, 0, array.Length - 1);
 
 		List<T> returnList = new List<T>();
 		foreach(GameObject obj in array)
@@ -26,9 +28,53 @@ public class Sorter : MonoBehaviour {
 		return returnList;
 	}
 
+
+
+	private static void Quick_Sort(GameObject[] arr, int left, int right) {
+		if (left < right) {
+			int pivot = Partition(arr, left, right);
+
+			if (pivot > 1) {
+				Quick_Sort(arr, left, pivot - 1);
+			}
+			if (pivot + 1 < right) {
+				Quick_Sort(arr, pivot + 1, right);
+			}
+		}
+        
+	}
+
+	private static int Partition(GameObject[] arr, int left, int right) {
+		int pivot = Int32.Parse(arr[left].name);
+		while (true) {
+
+			while (Int32.Parse(arr[left].name) < pivot) {
+				left++;
+			}
+
+			while (Int32.Parse(arr[right].name) > pivot) {
+				right--;
+			}
+
+			if (left < right) {
+				if (arr[left] == arr[right]) return right;
+
+				GameObject temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+			}
+			else {
+				return right;
+			}
+		}
+    }
+
+
 	///Overload of sortByName(array) for Lists
 	public static List<T> sortByName<T> (List<GameObject> list) {
-		return sortByName<T>(list.ToArray());
+		GameObject[] array = list.ToArray();
+		return sortByName<T>(array);
+
 	}
 
 	///Traditional insertion sort for integers
