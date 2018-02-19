@@ -9,7 +9,7 @@ public class ProjectileLifecycle : MonoBehaviour {
 	[SerializeField] private int damage = 1;
 
 	void OnCollisionEnter2D(Collision2D collision) {
-		if(collision.gameObject.tag == "Damagable")
+		if(collision.gameObject.tag == "Damageable")
 			collision.gameObject.GetComponent<Destructable>().Damage(damage);
 		Destroy(gameObject);
 	}

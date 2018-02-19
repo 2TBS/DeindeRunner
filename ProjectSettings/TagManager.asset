@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Environment
   - SetControlsButton
-  - Damagable
   - Projectile
+  - Damageable
   layers:
   - Default
   - TransparentFX
