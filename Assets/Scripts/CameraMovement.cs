@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour {
 	float CameraAcceleration = .01f;
 	float Camera2ndDerivative = 0.99f;
 	// Use this for initialization
-	
+
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.T))
