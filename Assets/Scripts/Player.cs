@@ -33,7 +33,24 @@ public class Player : MonoBehaviour {
 		Vector2 boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
 
+		if(!checkInView()) {
+			resetPosition();
+		}
 		//Add timer for powerup
+	}
+
+	//Checks if the player is in view of the camera
+	bool checkInView() {
+		//If you see an error in your editor for the next line, ign it. It's a unity thing
+		if (!GetComponent<Renderer>().IsVisibleFrom(Camera.main)) {
+	   		Debug.Log("Not Visible");
+		}
+		return GetComponent<Renderer>().IsVisibleFrom(Camera.main);
+	}
+
+	void resetPosition() {
+		Destroy(this.gameObject);
+		Debug.Log("Position Reset");
 	}
 
 	/*void Update() {
