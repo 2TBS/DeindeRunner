@@ -49,7 +49,8 @@ public class Player : MonoBehaviour {
 	}
 
 	void resetPosition() {
-		Destroy(this.gameObject);
+		Vector3 centerPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
+        this.transform.position = centerPos;
 		Debug.Log("Position Reset");
 	}
 
