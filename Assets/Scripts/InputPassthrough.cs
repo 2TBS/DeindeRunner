@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputPassthrough : MonoBehaviour {
-
+	[Range(1, 2)] public int playerNo;
 	private Player player;
 	private bool jumpRequest;
 	private bool shootRequest;
@@ -17,6 +17,8 @@ public class InputPassthrough : MonoBehaviour {
 	}
 
 	void Update() {
+		if(playerNo == 2)
+			return;
 		// Update Input
 		if(!jumpRequest) {
 			jumpRequest = Input.GetButtonDown("Jump");

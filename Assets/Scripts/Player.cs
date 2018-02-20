@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-
 	private float maxSpeed = 7.0f;
 	[Range(1, 10)] public float speed = 5.0f;
 	[Range(1, 10)] public float jumpForce;
