@@ -954,7 +954,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10000
-  field of view: 40
+  field of view: 30.886889
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -996,7 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1074897490e7a47889cfae89ee90d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 661282571}
   optionsBool: 0
 --- !u!95 &661282571
 Animator:
@@ -1328,20 +1328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af22840b2170bae4c8db7ae3aa29f45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlList: 
-  controlListNames:
-  - Forward
-  - Back
-  - Left
-  - Right
-  - Jump
-  - Run
-  - Crouch
-  - Inventory
-  configPath: 
-  textList:
-  - {fileID: 18786780}
-  infoText: {fileID: 1561179191}
 --- !u!114 &1008446355
 MonoBehaviour:
   m_ObjectHideFlags: 0
