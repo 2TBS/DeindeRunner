@@ -666,6 +666,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114129006163195590, guid: 756aa76e0b03a71419e4283625712715,
+        type: 2}
+      propertyPath: sceneHasKeybindButtons
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 756aa76e0b03a71419e4283625712715, type: 2}
   m_IsPrefabParent: 0
