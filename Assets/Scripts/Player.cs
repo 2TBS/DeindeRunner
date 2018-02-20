@@ -51,6 +51,7 @@ public class Player : MonoBehaviour {
 	void resetPosition() {
 		Vector3 centerPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
         this.transform.position = centerPos;
+		rb.velocity = new Vector2(0.0f, 0.0f);
 		Debug.Log("Position Reset");
 	}
 
