@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallMult: 3
   lowJumpMult: 2
-  input: {fileID: 114078272569048460, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+  input: {fileID: 114129006163195590, guid: 756aa76e0b03a71419e4283625712715, type: 2}
 --- !u!114 &114540167935035682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNo: 0
-  input: {fileID: 0}
+  input: {fileID: 114129006163195590, guid: 756aa76e0b03a71419e4283625712715, type: 2}
 --- !u!212 &212762636425689806
 SpriteRenderer:
   m_ObjectHideFlags: 1
