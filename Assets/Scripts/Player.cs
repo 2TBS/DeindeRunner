@@ -73,15 +73,9 @@ public class Player : MonoBehaviour {
 			float lerp = Mathf.Lerp(maxSpeed, 0f, Mathf.Abs(t));
 
 			Vector2 movement = new Vector2(lerp * speed, 0f);
-			if(move < 0)
-				movement.x *= -1;
-			else if(move == 0)
-				movement.x = 0;
-			
-			if(grounded)
-				rb.AddForce(movement * rb.mass, ForceMode2D.Force);
-			else
-				rb.AddForce(1.75f * movement * rb.mass, ForceMode2D.Force);
+			movement.x *= move;
+
+			rb.AddForce(movement * rb.mass, ForceMode2D.Force);
 		}
 
 		if(jump && grounded) {
