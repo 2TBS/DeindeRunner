@@ -20,6 +20,10 @@ public class Player : MonoBehaviour {
 	private float time;
 	public bool destructionPowerUpOn;
 
+	//Player health
+	private const int MAX_HEALTH = 3;
+	public int health = MAX_HEALTH;
+
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 		playerSize = GetComponent<BoxCollider2D>().size;
@@ -52,7 +56,9 @@ public class Player : MonoBehaviour {
 		Vector3 centerPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
         this.transform.position = centerPos;
 		rb.velocity = new Vector2(0.0f, 0.0f);
-		Debug.Log("Position Reset");
+		Debug.Log("Position Reset, deducted health");
+		health--;
+		Debug.Log("New health: " + health);
 	}
 
 	/*void Update() {
