@@ -19,10 +19,6 @@ public class HUD : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		p1Health.text = "P1 Health: " + p1.health;
-		//p2Health.text = "P2 Health: " + p2.health; Turn on when P2 is ready
-
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			TogglePauseMenu ();
 		}
@@ -31,7 +27,6 @@ public class HUD : MonoBehaviour {
 			Debug.Log("p1 health zero");
 			SceneManager.LoadScene("Game Over");
 		}
-
 	}
 
 	//Button Actions
