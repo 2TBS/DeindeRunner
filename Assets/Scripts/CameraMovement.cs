@@ -7,7 +7,7 @@ public class CameraMovement : MonoBehaviour {
 
 	public InputManager inputManager;
 
-    float CameraSpeed = 2f;
+    float CameraSpeed = 1f;
 	float CameraAcceleration = .01f;
 	float Camera2ndDerivative = 0.99f;
 	// Use this for initialization
@@ -22,6 +22,7 @@ public class CameraMovement : MonoBehaviour {
 			// CameraSpeed = CameraSpeed * (1 + CameraAcceleration);
 			// CameraAcceleration = CameraAcceleration * Camera2ndDerivative;
 			Debug.Log(CameraSpeed / Time.deltaTime);
+			Debub.Log("Moving camera on")
 		}
 	}
 }
