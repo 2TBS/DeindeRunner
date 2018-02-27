@@ -79,7 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prtype: 0
-  speedIncrease: 10
+  speedIncrease: 2
+  destructionIncrease: 2
   duration: 10
 --- !u!212 &212984859630807160
 SpriteRenderer:
