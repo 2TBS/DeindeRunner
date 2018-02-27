@@ -22,6 +22,7 @@ public class CameraMovement : MonoBehaviour {
 			// CameraSpeed = CameraSpeed * (1 + CameraAcceleration);
 			// CameraAcceleration = CameraAcceleration * Camera2ndDerivative;
 			Debug.Log(CameraSpeed / Time.deltaTime);
+
 		}
 	}
 }
