@@ -14,7 +14,7 @@ public class HUDHealth : MonoBehaviour {
 	GameObject healthPellet4;
 	GameObject healthPellet5;
 	private Player p1, p2;
-	
+
 	// Use this for initialization
 	void Start () {
 		//emptyPellet = Resources.Load("EmptyHealthPellet", typeof(Sprite)) as Sprite;
@@ -26,7 +26,7 @@ public class HUDHealth : MonoBehaviour {
 		healthPellet5 = GameObject.Find ("FullHealthPellet (5)");
 		p1 = GameObject.Find("Player").GetComponent<Player>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (p1.health > 4) {
@@ -66,5 +66,8 @@ public class HUDHealth : MonoBehaviour {
 			healthPellet4.GetComponent<Image> ().sprite = emptyHealthPellet;
 			healthPellet5.GetComponent<Image> ().sprite = emptyHealthPellet;
 		}
+	}
+	public void ApplyEffects(){
+		p1.health++;
 	}
 }

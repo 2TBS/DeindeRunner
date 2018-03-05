@@ -22,8 +22,10 @@ public class PR_Generic : MonoBehaviour {
 
 	[SerializeField] private float destructionIncrease = 2;
 
-	[SerializeField] private float duration = 3;
+  [SerializeField] private float healthIncrease = 1;
 
+	[SerializeField] private float duration = 3;
+HUDHealth hud = new HUDHealth();
 	// Use this for initialization
 	void Start () {
 		//collider = gameObject.GetComponent<Collider2D>();
@@ -59,8 +61,6 @@ public class PR_Generic : MonoBehaviour {
 			default:{
 				break;
 			}
-		}
+    }
 
-	}
-
-}
+	}}
