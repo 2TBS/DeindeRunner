@@ -22,13 +22,13 @@ public class PR_Generic : MonoBehaviour {
 
 	[SerializeField] private float destructionIncrease = 2;
 
-	[SerializeField] private float duration;
+	[SerializeField] private float duration = 3;
 
 	// Use this for initialization
 	void Start () {
 		//collider = gameObject.GetComponent<Collider2D>();
 	}
-	
+
 	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "Player")
             ApplyEffects(coll.gameObject);
@@ -36,7 +36,7 @@ public class PR_Generic : MonoBehaviour {
 
 	public void ApplyEffects(GameObject player){
 		switch (prtype)
-		{	
+		{
 			//Add the powerup code in each case statement
 			case Powerup.Speed:{
 				Debug.Log("OG Speed: " + player.GetComponent<Player>().speed);
@@ -53,12 +53,13 @@ public class PR_Generic : MonoBehaviour {
 				Debug.Log("Destruction Increase: ");
 				Debug.Log("New Destruction: ");
 				Destroy(gameObject);
+				Debug.Log("Damage Powerup Used");
 				break;
 			}
 			default:{
 				break;
 			}
-		} 
+		}
 
 	}
 
