@@ -15,13 +15,14 @@ public class HUDAmmo : MonoBehaviour {
 	PL_Shooting shootController;
 	// Use this for initialization
 	void Start () {
-		ammo = GameObject.Find ("Player");
+
 		bulletPellet1 = GameObject.Find ("BulletPellet (1)");
 		bulletPellet2 = GameObject.Find ("BulletPellet (2)");
 		bulletPellet3 = GameObject.Find ("BulletPellet (3)");
 		bulletPellet4 = GameObject.Find ("BulletPellet (4)");
 		bulletPellet5 = GameObject.Find ("BulletPellet (5)");
 		shootController = ammo.GetComponent <PL_Shooting> ();
+		p1 = GameObject.Find("Player").GetComponent<Player>();
 
 	}
 
