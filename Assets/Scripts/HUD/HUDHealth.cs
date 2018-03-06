@@ -67,7 +67,7 @@ public class HUDHealth : MonoBehaviour {
 			healthPellet5.GetComponent<Image> ().sprite = emptyHealthPellet;
 		}
 	}
-	public void ApplyEffects(){
+	public void ApplyHealth(){
 		p1.health++;
 	}
 }
