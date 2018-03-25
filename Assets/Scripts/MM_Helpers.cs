@@ -41,4 +41,9 @@ public class MM_Helpers : MonoBehaviour {
        x ++;
         SceneManager.LoadScene(x);
     }
+    public void Stage2() {
+       x = 3;
+       SceneManager.LoadScene(x);
+    }
+
 }
