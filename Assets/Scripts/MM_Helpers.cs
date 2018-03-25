@@ -37,8 +37,8 @@ public class MM_Helpers : MonoBehaviour {
     {
         SceneManager.LoadScene(x);
     }
-    public void Stage() {
-       x = 1;
+    public void ChangeScene() {
+       x ++;
         SceneManager.LoadScene(x);
     }
 }
