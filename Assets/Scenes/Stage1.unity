@@ -569,7 +569,6 @@ Transform:
 --- !u!1 &138694263
 GameObject:
   m_ObjectHideFlags: 0
-    - target: {fileID: 224017850160740272, guid: 13dd1f4a9d8275749b66ab1ba6d2fe14,
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
