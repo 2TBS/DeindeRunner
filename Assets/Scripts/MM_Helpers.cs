@@ -8,7 +8,7 @@ public class MM_Helpers : MonoBehaviour {
 
     public Animator animator;
     public bool optionsBool = false;
-    int x = 1; 
+    int x = 0;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -35,6 +35,10 @@ public class MM_Helpers : MonoBehaviour {
     }
     public void GameOver()
     {
+        SceneManager.LoadScene(x);
+    }
+    public void Stage() {
+       x = 1;
         SceneManager.LoadScene(x);
     }
 }
