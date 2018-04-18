@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class HUDAmmo : MonoBehaviour {
 
 	public Sprite fullBulletPellet;
@@ -22,7 +24,7 @@ public class HUDAmmo : MonoBehaviour {
 		bulletPellet4 = GameObject.Find ("BulletPellet (4)");
 		bulletPellet5 = GameObject.Find ("BulletPellet (5)");
 		shootController = ammo.GetComponent <PL_Shooting> ();
-		p1 = GameObject.Find("Player").GetComponent<Player>();
+		//p1 = GameObject.Find("Player").GetComponent<Player>();
 
 	}
 
