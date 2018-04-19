@@ -7145,52 +7145,37 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4285813225130908, guid: 756aa76e0b03a71419e4283625712715, type: 2}
+    - target: {fileID: 4678905794620396, guid: 756aa76e0b03a71419e4283625712715, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 20120991489228256, guid: 756aa76e0b03a71419e4283625712715,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20120991489228256, guid: 756aa76e0b03a71419e4283625712715,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20120991489228256, guid: 756aa76e0b03a71419e4283625712715,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 756aa76e0b03a71419e4283625712715, type: 2}

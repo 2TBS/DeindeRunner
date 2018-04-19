@@ -594,8 +594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6394818aaab9f4dbc30742463a807b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1Health: {fileID: 0}
-  p2Health: {fileID: 0}
   pauseMenu: {fileID: 223996585828864036}
   fullBulletPellet: {fileID: 0}
   emptyBulletPellet: {fileID: 0}
