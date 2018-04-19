@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Player.cs
+// Author: Adarsh I.
+// Editors: Omar H.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +14,7 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rb;
 	private Vector2 playerSize;
 	private Vector2 boxSize;
+	private Vector2 boxCenter;
 	private float groundCheckMargin = 0.05f;
 	public LayerMask groundLayer;
 	public bool speedPowerUpOn;
@@ -32,9 +37,12 @@ public class Player : MonoBehaviour {
 		time = 0;
 	}
 
+//This whole method makes no sense, pls comment
 	void FixedUpdate() {
 		grounded = false;
-		Vector2 boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
+		// Ground collision logic, note that the box is a small box with the width of the player and the height of groundlayer
+			// Its like a small sliver right beneath the play box
+		boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f; 
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
 
 		if(!checkInView()) {
