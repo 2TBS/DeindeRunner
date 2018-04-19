@@ -5,27 +5,26 @@ using UnityEngine;
 public class Destructable : MonoBehaviour {
 
 	// Use this for initialization
-	public const int MAX_HEALTH = 3; 
+	public const int MAX_HEALTH = 3;
 	private int health = MAX_HEALTH;
 
 	private SpriteRenderer spriteRenderer;
 
-	void Awake() {
-		spriteRenderer = GetComponent<SpriteRenderer>();
+	void Awake () {
+		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 
-	void Update() {
-		if(health < 0)
+	void Update () {
+		if (health < 0)
 			health = 0;
-		float lerp = Mathf.Lerp(0, 255, (float) (health - 1.0f)/ (float) (MAX_HEALTH - 1.0f));
-		spriteRenderer.color = new Color(255.0f - lerp, lerp, 0.0f);
-		if(health == 0)
-			Destroy(gameObject);
+		float lerp = Mathf.Lerp (0, 255, (float) (health - 1.0f) / (float) (MAX_HEALTH - 1.0f));
+		spriteRenderer.color = new Color (255.0f - lerp, lerp, 0.0f);
+		if (health == 0)
+			Destroy (gameObject);
 	}
 
-	public void Damage(int damage) {
+	public void Damage (int damage) {
 		health -= damage;
 	}
-
 
 }

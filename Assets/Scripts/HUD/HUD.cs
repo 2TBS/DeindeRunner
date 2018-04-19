@@ -13,7 +13,7 @@ public class HUD : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		p1 = GameObject.Find("Player").GetComponent<Player>();
+		p1 = GameObject.Find ("Player").GetComponent<Player> ();
 		pauseMenu.enabled = false;
 	}
 
@@ -23,9 +23,9 @@ public class HUD : MonoBehaviour {
 			TogglePauseMenu ();
 		}
 
-		if(p1.health == 0) {
-			Debug.Log("p1 health zero");
-			SceneManager.LoadScene("Game Over");
+		if (p1.health == 0) {
+			Debug.Log ("p1 health zero");
+			SceneManager.LoadScene ("Game Over");
 		}
 	}
 
