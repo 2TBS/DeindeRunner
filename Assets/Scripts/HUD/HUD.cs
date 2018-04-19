@@ -11,10 +11,23 @@ public class HUD : MonoBehaviour {
 	private Player p1, p2;
 	public Canvas pauseMenu;
 
+	//Health and ammo
+	public Sprite fullBulletPellet, emptyBulletPellet, fullHealthPellet, emptyHealthPellet;
+	public PL_Shooting shootController;
+	private GameObject[] bulletPellets, healthPellets;
+
 	// Use this for initialization
 	void Start () {
 		p1 = GameObject.Find ("Player").GetComponent<Player> ();
 		pauseMenu.enabled = false;
+
+		bulletPellets = new GameObject[5];
+		healthPellets = new GameObject[5];
+
+		for (int i = 0; i < 5; i++) {
+			bulletPellets[i] = GameObject.Find ("BulletPellet (" + i + ")");
+			healthPellets[i] = GameObject.Find ("FullHealthPellet (" + i + ")");
+		}
 	}
 
 	// Update is called once per frame
@@ -26,6 +39,14 @@ public class HUD : MonoBehaviour {
 		if (p1.health == 0) {
 			Debug.Log ("p1 health zero");
 			SceneManager.LoadScene ("Game Over");
+		}
+
+		//Health and Ammo
+		for (int i = 0; i < 5; i++) {
+			if (shootController.ammo <= i)
+				bulletPellets[i].GetComponent<Image> ().sprite = fullBulletPellet;
+			if (p1.health > 0)
+				healthPellets[i].GetComponent<Image> ().sprite = fullHealthPellet;
 		}
 	}
 
