@@ -37,7 +37,6 @@ public class Player : MonoBehaviour {
 		time = 0;
 	}
 
-<<<<<<< HEAD
 //This whole method makes no sense, pls comment
 	void FixedUpdate() {
 		grounded = false;
@@ -45,12 +44,6 @@ public class Player : MonoBehaviour {
 			// Its like a small sliver right beneath the play box
 		boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f; 
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
-=======
-	void FixedUpdate () {
-		grounded = false;
-		Vector2 boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
-		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;
->>>>>>> 9f956f398caa8c0a328ece52f8092e064423b40a
 
 		if (!checkInView ()) {
 			resetPosition ();

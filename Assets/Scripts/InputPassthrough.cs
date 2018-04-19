@@ -26,26 +26,15 @@ public class InputPassthrough : MonoBehaviour {
 		if (!jumpRequest) {
 			jumpRequest = Input.GetButtonDown ("Jump");
 		}
-<<<<<<< HEAD
-		shootRequest = Input.GetButtonDown("Shoot");
-		horizontal = Input.GetAxis("Horizontal");
-=======
 		shootRequest = Input.GetButtonDown ("Shoot");
-		h = Input.GetAxis ("Horizontal");
->>>>>>> 9f956f398caa8c0a328ece52f8092e064423b40a
+		horizontal = Input.GetAxis ("Horizontal");
 	}
 
 	void FixedUpdate () {
 		// Move player
-<<<<<<< HEAD
-		player.Move(horizontal, jumpRequest);
-		if(shootRequest)
-			player.Shoot();
-=======
-		player.Move (h, jumpRequest);
+		player.Move (horizontal, jumpRequest);
 		if (shootRequest)
 			player.Shoot ();
->>>>>>> 9f956f398caa8c0a328ece52f8092e064423b40a
 		jumpRequest = false;
 	}
 
