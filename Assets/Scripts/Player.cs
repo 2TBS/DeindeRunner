@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	private float maxSpeed = 7.0f;
-	[Range(1, 10)] public float speed = 5.0f;
+	private float maxSpeed = 15.0f;
+	[Range(1, 10)] public float moveSpeed = 5.0f;
 	[Range(1, 10)] public float jumpForce;
 	private Rigidbody2D rb;
 	private Vector2 playerSize;
@@ -74,17 +74,20 @@ public class Player : MonoBehaviour {
 		else {time = 0;}
 	}*/
 
-    public void Move(float move, bool jump) { // Do not edit this -Adarsh
+    public void Move(float move, bool jump) { // Do not edit this method -Adarsh
 		// Scaled movement that is proportional to current velocity
 		if(!WillHitWall(move)) {
 			float t = rb.velocity.x / maxSpeed;
 			
 			float lerp = Mathf.Lerp(maxSpeed, 0f, Mathf.Abs(t));
 
-			Vector2 movement = new Vector2(lerp * speed, 0f);
-			movement.x *= move;
+			Vector2 movement = new Vector2(move * lerp, 0f);
 
-			rb.AddForce(movement * rb.mass, ForceMode2D.Force);
+			// rb.AddForce(movement * rb.mass, ForceMode2D.Impulse);
+			rb.velocity = new Vector2(movement.x, rb.velocity.y);
+
+			Debug.Log(rb.velocity.x + ", " + lerp);
+
 		}
 
 		if(jump && grounded) {
@@ -92,8 +95,6 @@ public class Player : MonoBehaviour {
 		}
 
 	}
-	
-    
 
 	private void Jump() {
 		GetComponent<Rigidbody2D>().gravityScale = 1;
@@ -131,7 +132,7 @@ public class Player : MonoBehaviour {
 
 
 	public void PowerUpSpeed(float speedIncrease, float duration) {
-		speed += speedIncrease;
+		moveSpeed += speedIncrease;
 	}
 
 	public void PowerUpDestruction(float destructionIncrease, float duration) {

@@ -41,11 +41,11 @@ HUDHealth hud = new HUDHealth();
 		{
 			//Add the powerup code in each case statement
 			case Powerup.Speed:{
-				Debug.Log("OG Speed: " + player.GetComponent<Player>().speed);
+				Debug.Log("OG Speed: " + player.GetComponent<Player>().moveSpeed);
 				player.GetComponent<Player>().PowerUpSpeed(speedIncrease, duration);
 				//player.GetComponent<Player>().speed += speedIncrease; //Sets the players speed to a certain int
 				Debug.Log("Speed Increase: " + speedIncrease);
-				Debug.Log("New Speed: " + player.GetComponent<Player>().speed);
+				Debug.Log("New Speed: " + player.GetComponent<Player>().moveSpeed);
 				Destroy(gameObject);
 				break;
 			}
