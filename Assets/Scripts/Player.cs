@@ -9,8 +9,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 	private float maxSpeed = 7.0f;
-	[Range(1, 10)] public float speed = 5.0f;
-	[Range(1, 10)] public float jumpForce;
+	[Range (1, 10)] public float speed = 5.0f;
+	[Range (1, 10)] public float jumpForce;
 	private Rigidbody2D rb;
 	private Vector2 playerSize;
 	private Vector2 boxSize;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
 	private bool grounded;
 
 	[SerializeField] private Transform projectile;
-	[Range(0, 15)] public float firePower = 15.0f;
+	[Range (0, 15)] public float firePower = 15.0f;
 	private float time;
 	public bool destructionPowerUpOn;
 
@@ -29,14 +29,15 @@ public class Player : MonoBehaviour {
 	private const int MAX_HEALTH = 3;
 	public int health = MAX_HEALTH;
 
-	void Awake() {
-		rb = GetComponent<Rigidbody2D>();
-		playerSize = GetComponent<BoxCollider2D>().size;
-		boxSize = new Vector2(playerSize.x, groundCheckMargin);
+	void Awake () {
+		rb = GetComponent<Rigidbody2D> ();
+		playerSize = GetComponent<BoxCollider2D> ().size;
+		boxSize = new Vector2 (playerSize.x, groundCheckMargin);
 		destructionPowerUpOn = false;
 		time = 0;
 	}
 
+<<<<<<< HEAD
 //This whole method makes no sense, pls comment
 	void FixedUpdate() {
 		grounded = false;
@@ -44,29 +45,35 @@ public class Player : MonoBehaviour {
 			// Its like a small sliver right beneath the play box
 		boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f; 
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
+=======
+	void FixedUpdate () {
+		grounded = false;
+		Vector2 boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
+		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;
+>>>>>>> 9f956f398caa8c0a328ece52f8092e064423b40a
 
-		if(!checkInView()) {
-			resetPosition();
+		if (!checkInView ()) {
+			resetPosition ();
 		}
 		//Add timer for powerup
 	}
 
 	//Checks if the player is in view of the camera
-	bool checkInView() {
+	bool checkInView () {
 		//If you see an error in your editor for the next line, ign it. It's a unity thing
-		if (!GetComponent<Renderer>().IsVisibleFrom(Camera.main)) {
-	   		Debug.Log("Not Visible");
+		if (!GetComponent<Renderer> ().IsVisibleFrom (Camera.main)) {
+			Debug.Log ("Not Visible");
 		}
-		return GetComponent<Renderer>().IsVisibleFrom(Camera.main);
+		return GetComponent<Renderer> ().IsVisibleFrom (Camera.main);
 	}
 
-	void resetPosition() {
-		Vector3 centerPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
-        this.transform.position = centerPos;
-		rb.velocity = new Vector2(0.0f, 0.0f);
-		Debug.Log("Position Reset, deducted health");
+	void resetPosition () {
+		Vector3 centerPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, 10f));
+		this.transform.position = centerPos;
+		rb.velocity = new Vector2 (0.0f, 0.0f);
+		Debug.Log ("Position Reset, deducted health");
 		health--;
-		Debug.Log("New health: " + health);
+		Debug.Log ("New health: " + health);
 	}
 
 	/*void Update() {
@@ -80,45 +87,42 @@ public class Player : MonoBehaviour {
 		else {time = 0;}
 	}*/
 
-    public void Move(float move, bool jump) {
-		if(!WillHitWall(move)) {
+	public void Move (float move, bool jump) {
+		if (!WillHitWall (move)) {
 			float t = rb.velocity.x / maxSpeed;
-			
-			float lerp = Mathf.Lerp(maxSpeed, 0f, Mathf.Abs(t));
 
-			Vector2 movement = new Vector2(lerp * speed, 0f);
+			float lerp = Mathf.Lerp (maxSpeed, 0f, Mathf.Abs (t));
+
+			Vector2 movement = new Vector2 (lerp * speed, 0f);
 			movement.x *= move;
 
-			rb.AddForce(movement * rb.mass, ForceMode2D.Force);
+			rb.AddForce (movement * rb.mass, ForceMode2D.Force);
 		}
 
-		if(jump && grounded) {
-			Jump();
+		if (jump && grounded) {
+			Jump ();
 		}
 
 	}
-	
-    
 
-	private void Jump() {
-		GetComponent<Rigidbody2D>().gravityScale = 1;
-		GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+	private void Jump () {
+		GetComponent<Rigidbody2D> ().gravityScale = 1;
+		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpForce, ForceMode2D.Impulse);
 		grounded = false;
 	}
 
-	private bool WillHitWall(float move) {
+	private bool WillHitWall (float move) {
 		RaycastHit2D hit;
 		bool hitWall = false;
 		if (move > 0f) {
-			if(hit = Physics2D.CircleCast(transform.position, .5f, transform.right, .6f)) {
-				if(hit.collider.tag == "Environment") {
+			if (hit = Physics2D.CircleCast (transform.position, .5f, transform.right, .6f)) {
+				if (hit.collider.tag == "Environment") {
 					hitWall = true;
 				}
 			}
-		}
-		else if (move < 0f) {
-			if(hit = Physics2D.CircleCast(transform.position, .5f, -transform.right, .6f)) {
-				if(hit.collider.tag == "Environment") {
+		} else if (move < 0f) {
+			if (hit = Physics2D.CircleCast (transform.position, .5f, -transform.right, .6f)) {
+				if (hit.collider.tag == "Environment") {
 					hitWall = true;
 				}
 			}
@@ -127,19 +131,18 @@ public class Player : MonoBehaviour {
 		return hitWall;
 	}
 
-	public void Shoot() {
-        Transform clone = Instantiate(projectile, new Vector2(transform.position.x + (playerSize.x * 2f/3f), transform.position.y), 
+	public void Shoot () {
+		Transform clone = Instantiate (projectile, new Vector2 (transform.position.x + (playerSize.x * 2f / 3f), transform.position.y),
 			projectile.rotation);
-		clone.GetComponent<Rigidbody2D>().velocity = Vector2.right * firePower;
-		Destroy(clone.gameObject, 10.0f);
-    }
+		clone.GetComponent<Rigidbody2D> ().velocity = Vector2.right * firePower;
+		Destroy (clone.gameObject, 10.0f);
+	}
 
-
-	public void PowerUpSpeed(float speedIncrease, float duration) {
+	public void PowerUpSpeed (float speedIncrease, float duration) {
 		speed += speedIncrease;
 	}
 
-	public void PowerUpDestruction(float destructionIncrease, float duration) {
+	public void PowerUpDestruction (float destructionIncrease, float duration) {
 		//destruction += destructionIncrease;
 	}
 

@@ -13,37 +13,33 @@ public class MM_Helpers : MonoBehaviour {
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
     /// </summary>
-    void Start()
-    {
-        animator = GetComponent<Animator>();
+    void Start () {
+        animator = GetComponent<Animator> ();
     }
 
-	public void LoadLevel(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
+    public void LoadLevel (string sceneName) {
+        SceneManager.LoadScene (sceneName);
     }
 
-    public void ToggleOptions() {
-        if(optionsBool){
-            animator.SetFloat("SpeedMultiplier", -1.0f);
-        }
-        else{
-            animator.SetFloat("SpeedMultiplier", 1.0f);
+    public void ToggleOptions () {
+        if (optionsBool) {
+            animator.SetFloat ("SpeedMultiplier", -1.0f);
+        } else {
+            animator.SetFloat ("SpeedMultiplier", 1.0f);
         }
         optionsBool = !optionsBool;
-        animator.SetBool("Options", optionsBool);
+        animator.SetBool ("Options", optionsBool);
     }
-    public void GameOver()
-    {
-        SceneManager.LoadScene(x);
+    public void GameOver () {
+        SceneManager.LoadScene (x);
     }
-    public void ChangeScene() {
-       x ++;
-        SceneManager.LoadScene(x);
+    public void ChangeScene () {
+        x++;
+        SceneManager.LoadScene (x);
     }
-    public void Stage2() {
-       x = 3;
-       SceneManager.LoadScene(x);
+    public void Stage2 () {
+        x = 3;
+        SceneManager.LoadScene (x);
     }
 
 }
