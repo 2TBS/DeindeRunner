@@ -608,6 +608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c23c6e96e44cf64998f0fba9110668c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullBulletPellet: {fileID: 0}
+  emptyBulletPellet: {fileID: 0}
+  ammo: {fileID: 0}
 --- !u!114 &114346957269153428
 MonoBehaviour:
   m_ObjectHideFlags: 1
