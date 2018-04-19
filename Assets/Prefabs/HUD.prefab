@@ -597,6 +597,11 @@ MonoBehaviour:
   p1Health: {fileID: 0}
   p2Health: {fileID: 0}
   pauseMenu: {fileID: 223996585828864036}
+  fullBulletPellet: {fileID: 0}
+  emptyBulletPellet: {fileID: 0}
+  fullHealthPellet: {fileID: 0}
+  emptyHealthPellet: {fileID: 0}
+  shootController: {fileID: 0}
 --- !u!114 &114312213608113550
 MonoBehaviour:
   m_ObjectHideFlags: 1

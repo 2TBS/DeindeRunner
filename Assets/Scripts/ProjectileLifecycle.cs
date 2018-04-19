@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>Attach to projectiles to facilitate collisions.</summary>
 public class ProjectileLifecycle : MonoBehaviour {
 
 	// Update is called once per frame
