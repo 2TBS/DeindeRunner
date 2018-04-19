@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 	public bool destructionPowerUpOn;
 
 	//Player health
-	private const int MAX_HEALTH = 3;
+	private const int MAX_HEALTH = 5;
 	public int health = MAX_HEALTH;
 
 	void Awake () {
