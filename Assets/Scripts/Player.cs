@@ -27,24 +27,26 @@ public class Player : MonoBehaviour {
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 		playerSize = GetComponent<BoxCollider2D>().size;
+		// Small rectangle that is very thin that spans the underneath of the player body
 		boxSize = new Vector2(playerSize.x, groundCheckMargin);
 		destructionPowerUpOn = false;
 		time = 0;
 	}
 
 	void FixedUpdate() {
-		grounded = false;
+		grounded = false; // If player is touching the ground 
+		// Overlap with the ground to check for a ground collision
 		Vector2 boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
 		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
 
-		if(!checkInView()) {
-			resetPosition();
+		if(!CheckInView()) {
+			ResetPosition();
 		}
 		//Add timer for powerup
 	}
 
 	//Checks if the player is in view of the camera
-	bool checkInView() {
+	bool CheckInView() {
 		//If you see an error in your editor for the next line, ign it. It's a unity thing
 		if (!GetComponent<Renderer>().IsVisibleFrom(Camera.main)) {
 	   		Debug.Log("Not Visible");
@@ -52,13 +54,13 @@ public class Player : MonoBehaviour {
 		return GetComponent<Renderer>().IsVisibleFrom(Camera.main);
 	}
 
-	void resetPosition() {
+	void ResetPosition() {
 		Vector3 centerPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
         this.transform.position = centerPos;
 		rb.velocity = new Vector2(0.0f, 0.0f);
 		Debug.Log("Position Reset, deducted health");
-		health--;
 		Debug.Log("New health: " + health);
+		health--;
 	}
 
 	/*void Update() {
@@ -72,7 +74,8 @@ public class Player : MonoBehaviour {
 		else {time = 0;}
 	}*/
 
-    public void Move(float move, bool jump) {
+    public void Move(float move, bool jump) { // Do not edit this -Adarsh
+		// Scaled movement that is proportional to current velocity
 		if(!WillHitWall(move)) {
 			float t = rb.velocity.x / maxSpeed;
 			
