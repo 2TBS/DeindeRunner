@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//InputPassthrough
+//Author: Ben C.
+//Editors: Omar H.
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +10,7 @@ public class InputPassthrough : MonoBehaviour {
 	private Player player;
 	private bool jumpRequest;
 	private bool shootRequest;
-	private float h;
+	private float horizontal;
 
 	[SerializeField]
 	private InputManager input;
@@ -24,12 +27,12 @@ public class InputPassthrough : MonoBehaviour {
 			jumpRequest = Input.GetButtonDown ("Jump");
 		}
 		shootRequest = Input.GetButtonDown ("Shoot");
-		h = Input.GetAxis ("Horizontal");
+		horizontal = Input.GetAxis ("Horizontal");
 	}
 
 	void FixedUpdate () {
 		// Move player
-		player.Move (h, jumpRequest);
+		player.Move (horizontal, jumpRequest);
 		if (shootRequest)
 			player.Shoot ();
 		jumpRequest = false;

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Adarsh I.
+//Last Edited: Omar H. 4/19/18
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +12,19 @@ public class CameraMovement : MonoBehaviour {
 	float CameraSpeed = 1f;
 	float CameraAcceleration = .01f;
 	float Camera2ndDerivative = 0.99f;
+	public Animator anim;
+
 	// Use this for initialization
+	void Start () {
+		anim = GetComponent<Animator>();
+		print("hello");
+		// Start Coroutine is used for some methods that use time, WaitForSeconds() in this example
+		StartCoroutine(PlayStartUp());
+	}
 
 	// Update is called once per frame
 	void Update () {
+		
 		if (Input.GetKeyDown (KeyCode.T))
 			isMoving = !isMoving;
 		if (isMoving) {
@@ -24,5 +35,12 @@ public class CameraMovement : MonoBehaviour {
 			Debug.Log (CameraSpeed / Time.deltaTime);
 
 		}
+	}
+
+	//Stops animator after x seconds to allow game logic to take control
+	IEnumerator PlayStartUp () {
+		yield return new WaitForSeconds(5);
+		print("hello");
+		anim.enabled = false;
 	}
 }
