@@ -236,8 +236,8 @@ public class InputManager : MonoBehaviour {
 		float result = 0f;
 
 		//gamepad connected
-		if (state.IsConnected)
-			result = GamepadStates.ToAxisValue(GetAxisName(name), state);
+		// if (state.IsConnected)
+		// 	result = GamepadStates.ToAxisValue(GetAxisName(name), state);
 
 		if (result == 0f)
 			result = (GetKey(GetAxisNegative(name).name)) ? -1f :
