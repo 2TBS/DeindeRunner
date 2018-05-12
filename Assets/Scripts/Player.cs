@@ -1,6 +1,6 @@
 ﻿// Player.cs
 // Author: Adarsh I.
-// Editors: Omar H.
+// Editors: Omar H. and Ben C.
 
 using System;
 using System.Collections;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 	public LayerMask groundLayer;
 	public bool speedPowerUpOn;
 	private bool grounded;
+	public Collider2D levelBounds; // Assign in level, this is an empty sprite with a custom Box Collider. 
 
 	[SerializeField] private Transform projectile;
 	[Range (0, 15)] public float firePower = 15.0f;
@@ -39,13 +40,13 @@ public class Player : MonoBehaviour {
 		rb.freezeRotation = true;
 	}
 
-//This whole method makes no sense, pls comment
-	void FixedUpdate() {
+	//This whole method makes no sense, pls comment
+	void FixedUpdate () {
 		grounded = false;
 		// Ground collision logic, note that the box is a small box with the width of the player and the height of groundlayer
-			// Its like a small sliver right beneath the play box
-		boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f; 
-		grounded =  Physics2D.OverlapBox(boxCenter, boxSize, 0f, groundLayer) != null;
+		// Its like a small sliver right beneath the play box
+		boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
+		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;
 
 		if (!checkInView ()) {
 			resetPosition ();
@@ -53,15 +54,13 @@ public class Player : MonoBehaviour {
 		//Add timer for powerup
 	}
 
-	//Checks if the player is in view of the camera
+	//Checks if the player is in the bounds of the map
 	bool checkInView () {
-		//If you see an error in your editor for the next line, ign it. It's a unity thing
-		if (!GetComponent<Renderer> ().IsVisibleFrom (Camera.main)) {
-			Debug.Log ("Not Visible");
-		}
-		return GetComponent<Renderer> ().IsVisibleFrom (Camera.main);
+		// print (GetComponent<Collider2D> ().IsTouching (levelBounds));
+		return GetComponent<Collider2D> ().IsTouching (levelBounds);
 	}
 
+	// Sets player position to center of screen if player is outside of level bounds or has died.
 	void resetPosition () {
 		Vector3 centerPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, 10f));
 		this.transform.position = centerPos;
