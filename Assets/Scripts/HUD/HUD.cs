@@ -17,23 +17,28 @@ public class HUD : MonoBehaviour {
 	// Health and ammo
 	public Sprite fullBulletPellet, emptyBulletPellet, fullHealthPellet, emptyHealthPellet;
 	public PL_Shooting shootController;
-	private GameObject[] bulletPellets, healthPellets;
+	private GameObject[] p1BulletPellets, p1HealthPellets, p2HealthPellets, p2BulletPellets;
 
 	// Use this for initialization
 	void Start () {
 		p1 = GameObject.Find ("Player 1").GetComponent<Player> ();
+		p2 = GameObject.Find ("Player 2").GetComponent<Player> ();
 		pauseMenu.enabled = false;
 
-		bulletPellets = new GameObject[5];
-		healthPellets = new GameObject[5];
+		p1BulletPellets = new GameObject[5];
+		p1HealthPellets = new GameObject[5];
+		p2BulletPellets = new GameObject[5];
+		p2HealthPellets = new GameObject[5];
 
-		// Finds bulletPellets by finding the names Bullet/FullHealthPellets (1/2/3/4/5) and
+		// Finds BulletPellets by finding the names Bullet/Full HealthPellets (1/2/3/4/5) and
 			// storing them in an array
 		for (int i = 0; i < 5; i++) {
-			bulletPellets[i] = GameObject.Find ("BulletPellet (" + (i+1) + ")");
-			healthPellets[i] = GameObject.Find ("FullHealthPellet (" + (i+1) + ")");
+			p1BulletPellets[i] = GameObject.Find ("BulletPellet (" + (i+1) + ")");
+			p1HealthPellets[i] = GameObject.Find ("FullHealthPellet (" + (i+1) + ")");
+			p2BulletPellets[i] = GameObject.Find ("P2BulletPellet (" + (i+1) + ")");
+			p2HealthPellets[i] = GameObject.Find ("P2FullHealthPellet (" + (i+1) + ")");
 			// Checks to see if for loop is correctly finding bullets
-			//print("Finding FullHealthPellet " + (i+1) + ": "+ healthPellets[i]);
+			//print("Finding FullHealthPellet " + (i+1) + ": "+ p1HealthPellets[i]);
 		}
 	}
 
@@ -47,27 +52,41 @@ public class HUD : MonoBehaviour {
 			Debug.Log ("p1 health zero");
 			SceneManager.LoadScene ("Game Over");
 		}
+		if (p2.health == 0) {
+			Debug.Log ("p2 health zero");
+			SceneManager.LoadScene ("Game Over");
+		}
 
 		// Health and Ammo
 		for (int i = 0; i < 5; i++) {
 			//Implement when implementing limited shooting
 			/*if (shootController.ammo <= i)
-				bulletPellets[i].GetComponent<Image> ().sprite = fullBulletPellet;*/
+				p1BulletPellets[i].GetComponent<Image> ().sprite = fullBulletPellet;*/
 			if (p1.health > i)
-				healthPellets[i].GetComponent<Image> ().sprite = fullHealthPellet;
+				p1HealthPellets[i].GetComponent<Image> ().sprite = fullHealthPellet;
+			if (p2.health > i)
+				p2HealthPellets[i].GetComponent<Image> ().sprite = fullHealthPellet;
 		}
 
 		for (int i = 5; i > 0; i--) {
 			//Implement when implementing limited shooting
 			/*if (shootController.ammo <= i)
-				bulletPellets[i].GetComponent<Image> ().sprite = fullBulletPellet;*/
+				p1BulletPellets[i].GetComponent<Image> ().sprite = fullBulletPellet;*/
 			if (p1.health == i) {
 				// Makes all depleted bullets have empty sprite
 				for (int j = (5-1); j > (i-1); j--)
-					healthPellets[j].GetComponent<Image> ().sprite = emptyHealthPellet;
+					p1HealthPellets[j].GetComponent<Image> ().sprite = emptyHealthPellet;
 				// Makes all existing bullets have full sprite	
 				for (int j = 0; j <= (i-1); j++)
-					healthPellets[j].GetComponent<Image> ().sprite = fullHealthPellet;
+					p1HealthPellets[j].GetComponent<Image> ().sprite = fullHealthPellet;
+			}
+			if (p2.health == i) {
+				// Makes all depleted bullets have empty sprite
+				for (int j = (5-1); j > (i-1); j--)
+					p2HealthPellets[j].GetComponent<Image> ().sprite = emptyHealthPellet;
+				// Makes all existing bullets have full sprite	
+				for (int j = 0; j <= (i-1); j++)
+					p2HealthPellets[j].GetComponent<Image> ().sprite = fullHealthPellet;
 			}
 		}
 

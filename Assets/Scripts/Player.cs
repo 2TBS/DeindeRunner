@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	private float maxSpeed = 7.0f;
 	[Range (1, 10)] public float speed = 5.0f;
 	[Range (1, 10)] public float jumpForce;
+	[Range (1, 2)] public int playerNo;
 	private Rigidbody2D rb;
 	private Vector2 playerSize;
 	private Vector2 boxSize;
@@ -64,9 +65,9 @@ public class Player : MonoBehaviour {
 		Vector3 centerPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, 10f));
 		this.transform.position = centerPos;
 		rb.velocity = new Vector2 (0.0f, 0.0f);
-		Debug.Log ("Position Reset, deducted health");
+		// Debug.Log ("Position Reset, deducted health");
 		health--;
-		Debug.Log ("New health: " + health);
+		Debug.Log ("Player " + playerNo + " New health: " + health);
 	}
 
 	/*void Update() {

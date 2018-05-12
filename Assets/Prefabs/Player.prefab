@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114315328854276310}
   - component: {fileID: 114540167935035682}
   - component: {fileID: 114188103653337612}
-  - component: {fileID: 114905550489623166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -104,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jumpForce: 8
+  playerNo: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -111,7 +111,7 @@ MonoBehaviour:
   projectile: {fileID: 4580069780052834, guid: dbe23669554278e4ca021011c6ce20bb, type: 2}
   firePower: 15
   destructionPowerUpOn: 0
-  health: 3
+  health: 5
 --- !u!114 &114315328854276310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,29 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59138a517b54bbc49bbecd7e5bb02090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNo: 0
+  playerNo: 1
   input: {fileID: 0}
---- !u!114 &114905550489623166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264179689536766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e282861fb92138740b9e66e42559ef4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  jumpForce: 8
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  speedPowerUpOn: 0
-  projectile: {fileID: 4580069780052834, guid: dbe23669554278e4ca021011c6ce20bb, type: 2}
-  firePower: 15
-  destructionPowerUpOn: 0
-  health: 3
 --- !u!212 &212762636425689806
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -196,7 +175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1969fa9376949e4409ff2310ce27dec1, type: 3}
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
