@@ -36,6 +36,7 @@ public class Player : MonoBehaviour {
 		boxSize = new Vector2 (playerSize.x, groundCheckMargin);
 		destructionPowerUpOn = false;
 		time = 0;
+		rb.freezeRotation = true;
 	}
 
 //This whole method makes no sense, pls comment
