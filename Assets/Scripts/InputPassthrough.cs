@@ -23,7 +23,8 @@ public class InputPassthrough : MonoBehaviour {
 	[SerializeField]
 	private InputManager input;
 
-	void Awake () {
+    // receiver of player input
+ 	void Awake () {
 		input = InputManager.GetInputManager();
 		player = GetComponent<Player> ();
 	}

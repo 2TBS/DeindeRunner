@@ -25,8 +25,9 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (Input.GetKeyDown (KeyCode.T))
-			isMoving = !isMoving;
+	
+	    //removed input for T
+		isMoving = !isMoving;
 		if (isMoving) {
 			transform.Translate (Vector2.right * (CameraSpeed * Time.deltaTime));
 			// No acceleration for now

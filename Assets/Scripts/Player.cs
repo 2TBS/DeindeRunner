@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
 	private const int MAX_HEALTH = 5;
 	public int health = MAX_HEALTH;
 
+
+    //method for 
 	void Awake () {
 		rb = GetComponent<Rigidbody2D> ();
 		playerSize = GetComponent<BoxCollider2D> ().size;
@@ -45,8 +47,8 @@ public class Player : MonoBehaviour {
 		grounded = false;
 		// Ground collision logic, note that the box is a small box with the width of the player and the height of groundlayer
 		// Its like a small sliver right beneath the play box
-		boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
-		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;
+		boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;  // transforms  player in certain direction
+		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;  // ground 
 
 		if (!checkInView ()) {
 			resetPosition ();
@@ -61,11 +63,13 @@ public class Player : MonoBehaviour {
 	}
 
 	// Sets player position to center of screen if player is outside of level bounds or has died.
+	// this method needs changing!!!
+	// reseting to the center isn't necessarily a good thing!!! 
 	void resetPosition () {
-		Vector3 centerPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, 10f));
+		Vector3 resetPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.1f, 0.1f, 10f));
 		this.transform.position = centerPos;
 		rb.velocity = new Vector2 (0.0f, 0.0f);
-		// Debug.Log ("Position Reset, deducted health");
+		Debug.Log ("reset to NOT CENTER");
 		health--;
 		Debug.Log ("Player " + playerNo + " New health: " + health);
 	}
@@ -80,8 +84,8 @@ public class Player : MonoBehaviour {
 		}
 		else {time = 0;}
 	}*/
-
-	public void Move (float move, bool jump) {
+ // method for hitting the wall(PLEASE CHANGE THIS)
+	public void Move (float move, bool jump) {      
 		if (!WillHitWall (move)) {
 			float t = rb.velocity.x / maxSpeed;
 
