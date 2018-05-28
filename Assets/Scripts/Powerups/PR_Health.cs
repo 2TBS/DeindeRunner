@@ -6,7 +6,7 @@ using UnityEngine;
 /// Basic PowerUp Class based of an Enumerator and Switch system
 /// Author: Vikram Peddinti February 2018, Ben Cuan April 2018
 /// </summary>
-public abstract class PR_Generic : MonoBehaviour {
+public abstract class PR_Health : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;  // ground 
 
 		if (!checkInView ()) {
-			resetPosition ();
+			//resetPosition ();
 		}
 		//Add timer for powerup
 	}
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour {
 	// reseting to the center isn't necessarily a good thing!!! 
 	void resetPosition () {
 		Vector3 resetPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.1f, 0.1f, 10f));
-		this.transform.position = centerPos;
+		this.transform.position = resetPos;
 		rb.velocity = new Vector2 (0.0f, 0.0f);
 		Debug.Log ("reset to NOT CENTER");
 		health--;
