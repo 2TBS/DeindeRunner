@@ -31,8 +31,7 @@ public class Player : MonoBehaviour {
 	private const int MAX_HEALTH = 5;
 	public int health = MAX_HEALTH;
 
-
-    //method for 
+	//method for 
 	void Awake () {
 		rb = GetComponent<Rigidbody2D> ();
 		playerSize = GetComponent<BoxCollider2D> ().size;
@@ -47,29 +46,30 @@ public class Player : MonoBehaviour {
 		grounded = false;
 		// Ground collision logic, note that the box is a small box with the width of the player and the height of groundlayer
 		// Its like a small sliver right beneath the play box
-		boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;  // transforms  player in certain direction
-		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null;  // ground 
+		boxCenter = (Vector2) transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f; // transforms  player in certain direction
+		grounded = Physics2D.OverlapBox (boxCenter, boxSize, 0f, groundLayer) != null; // ground 
 
 		if (!checkInView ()) {
-			//resetPosition ();
+			resetPosition ();
 		}
 		//Add timer for powerup
 	}
 
-	//Checks if the player is in the bounds of the map
+	//Checks if the player is in the bounds of the map. Returns true if out of bounds OR behind the camera.
 	bool checkInView () {
 		// print (GetComponent<Collider2D> ().IsTouching (levelBounds));
-		return GetComponent<Collider2D> ().IsTouching (levelBounds);
+		return GetComponent<Collider2D> ().IsTouching (levelBounds) && transform.position.x >= Camera.main.transform.position.x - 10f;
 	}
 
 	// Sets player position to center of screen if player is outside of level bounds or has died.
 	// this method needs changing!!!
 	// reseting to the center isn't necessarily a good thing!!! 
 	void resetPosition () {
-		Vector3 resetPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.1f, 0.1f, 10f));
+		// Consult the documentation at https://docs.unity3d.com/ScriptReference/Camera.ViewportToWorldPoint.html if you're confused as to what the below numbers mean.
+		Vector3 resetPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.9f, 10f));
 		this.transform.position = resetPos;
 		rb.velocity = new Vector2 (0.0f, 0.0f);
-		Debug.Log ("reset to NOT CENTER");
+		print ("reset to " + resetPos);
 		health--;
 		Debug.Log ("Player " + playerNo + " New health: " + health);
 	}
@@ -84,8 +84,8 @@ public class Player : MonoBehaviour {
 		}
 		else {time = 0;}
 	}*/
- // method for hitting the wall(PLEASE CHANGE THIS)
-	public void Move (float move, bool jump) {      
+	// method for hitting the wall(PLEASE CHANGE THIS)
+	public void Move (float move, bool jump) {
 		if (!WillHitWall (move)) {
 			float t = rb.velocity.x / maxSpeed;
 
