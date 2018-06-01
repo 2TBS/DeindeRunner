@@ -136,12 +136,16 @@ public class Player : MonoBehaviour {
 		Destroy (clone.gameObject, 10.0f);
 	}
 
-	public void PowerUpSpeed (float speedIncrease, float duration) {
-		speed += speedIncrease;
+	/// Increments or decrements speed by given amount.
+	/// For use with powerups.
+	public void ChangeSpeed(float speedChange) {
+		speed += speedChange;
 	}
 
-	public void PowerUpDestruction (float destructionIncrease, float duration) {
-		//destruction += destructionIncrease;
+	/// Increments or decrements health by given amount.
+	/// For use with powerups.
+	public void ChangeHealth(int healthChange) {
+		health += healthChange;
 	}
 
 }
