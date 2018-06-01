@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public abstract class PR_Generic : MonoBehaviour {
 
+
+
+     	public Sprite emptyHealthPellet;
 	// Use this for initialization
 	void Start () {
 		//collider = gameObject.GetComponent<Collider2D>();

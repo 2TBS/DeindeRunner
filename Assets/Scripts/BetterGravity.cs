@@ -16,7 +16,7 @@ public class BetterGravity : MonoBehaviour {
 	void Awake () {
 		rb = GetComponent<Rigidbody2D> ();
 	}
-
+    // gets input from the "Jump" button
 	void Update () {
 		jumpButtonDown = Input.GetButton ("Jump");
 	}
