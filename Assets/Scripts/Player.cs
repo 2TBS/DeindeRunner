@@ -102,13 +102,13 @@ public class Player : MonoBehaviour {
 		}
 
 	}
-
+   // JUUUUUUUUUMP
 	private void Jump () {
 		GetComponent<Rigidbody2D> ().gravityScale = 1;
 		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpForce, ForceMode2D.Impulse);
 		grounded = false;
 	}
-
+     // method for instance in which player touches the wall in the level 
 	private bool WillHitWall (float move) {
 		RaycastHit2D hit;
 		bool hitWall = false;
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour {
 
 		return hitWall;
 	}
-
+  // shooting method
 	public void Shoot () {
 		Transform clone = Instantiate (projectile, new Vector2 (transform.position.x + (playerSize.x * 2f / 3f), transform.position.y),
 			projectile.rotation);

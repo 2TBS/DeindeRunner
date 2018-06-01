@@ -16,11 +16,12 @@ public class MM_Helpers : MonoBehaviour {
     void Start () {
         animator = GetComponent<Animator> ();
     }
-
+    
+    //method for loading the scene based off of the scene name
     public void LoadLevel (string sceneName) {
         SceneManager.LoadScene (sceneName);
     }
-
+    
     public void ToggleOptions () {
         if (optionsBool) {
             animator.SetFloat ("SpeedMultiplier", -1.0f);
