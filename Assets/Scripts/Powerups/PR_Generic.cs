@@ -21,16 +21,20 @@ public abstract class PR_Generic : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D coll) {
 		if (coll.gameObject.tag == "Player") {
 			pl = coll.gameObject.GetComponent<Player> ();
-			ApplyEffects (pl);
-			StartCoroutine (WaitToRemove());
-			StartCoroutine (Respawn());
+			if(CanPickUp(pl)) {
+				ApplyEffects (pl);
+				StartCoroutine (WaitToRemove());
+				StartCoroutine (Respawn());
+			}
 		}
 	}
 
 	/// <summary>Override this with the desired functionality of the powerup.</summary>
 	protected abstract void ApplyEffects (Player player);
-	/// <summary>Override this with the desired functionality to remove powerup effects. Player should return to normal state afterwards. Can be left empty if there are no effects that require reverting.</summary>
-	protected abstract void RemoveEffects (Player player);
+	/// <summary>Override this with the desired functionality to remove powerup effects. Player should return to normal state afterwards. Does not have to be implemented.</summary>
+	protected virtual void RemoveEffects (Player player) {}
+	/// <summary>Conditions that must be satisfied before the player may pick up this powerup. Will always return true unless overridden.</summary>
+	protected virtual bool CanPickUp (Player player) {return true;}
 
 	private IEnumerator WaitToRemove() {
 		yield return new WaitForSeconds(duration);

@@ -11,9 +11,12 @@ public class PR_Health : PR_Generic {
 
 	protected override void ApplyEffects (Player player) {
 		print (player.name + " Picked up Health Powerup");
-		player.ChangeHealth(healthIncrease);
+		player.health += healthIncrease;
+		if(player.health > 5)
+			player.health = 5;
 	}
 
-	// No effects to remove.
-	protected override void RemoveEffects (Player player) {}
+	protected override bool CanPickUp(Player player) {
+		return player.health < 5;
+	}
 }

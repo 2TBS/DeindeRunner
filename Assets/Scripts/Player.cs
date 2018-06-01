@@ -142,10 +142,4 @@ public class Player : MonoBehaviour {
 		speed += speedChange;
 	}
 
-	/// Increments or decrements health by given amount.
-	/// For use with powerups.
-	public void ChangeHealth(int healthChange) {
-		health += healthChange;
-	}
-
 }
