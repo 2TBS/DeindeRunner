@@ -14,20 +14,19 @@ public class ProjectileLifecycle : MonoBehaviour {
 
     // method for checking for whether the projectiles have collided or not
 	void OnCollisionEnter2D (Collision2D col) {
-		//this if statement is for regular projectiles/bullets 
-		if (col.gameObject.tag == "Damageable") {
-			col.gameObject.GetComponent<Destructable> ().Damage (damage);
+		//this if statement is for players
+		if (col.gameObject.tag == "Player") {
+			col.gameObject.GetComponent<Player> ().health -= damage;
 			Destroy (gameObject);
 		}
-		// this else if statement is for the "sniper" powerup
-        else if(col.gameObject.tag == "Damageable") {
-            col.gameObject.GetComponent<Destructable> ().Damage (snipedamage);
+		// Terrain
+        else if(col.gameObject.tag == "Ground") {
           	Destroy (gameObject);
 		}
         // this else if statement is for the "weapons" implemented in the game 
 	    else if(col.gameObject.tag == "Damageable") {
             col.gameObject.GetComponent<Destructable> ().Damage (weapondamage);
           	Destroy (gameObject);
-		}	  
+		}	
 	}
 }
