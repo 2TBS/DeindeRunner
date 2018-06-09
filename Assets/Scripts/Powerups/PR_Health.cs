@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Basic PowerUp Class based of an Enumerator and Switch system
-/// Author: Vikram Peddinti February 2018, Ben Cuan April 2018
-/// </summary>
-public abstract class PR_Health : MonoBehaviour {
+/// Speed Powerup. Created by Ben Cuan, 31 May 2018
+public class PR_Health : PR_Generic {
 
+	// Amount to change the player health by. Max health is 5
+	[SerializeField] private int healthIncrease = 2;
+	// Duration in seconds for the effects to take place.
 
-
-     	public Sprite emptyHealthPellet;
-	// Use this for initialization
-	void Start () {
-		//collider = gameObject.GetComponent<Collider2D>();
+	protected override void ApplyEffects (Player player) {
+		print (player.name + " Picked up Health Powerup");
+		player.health += healthIncrease;
+		if(player.health > 5)
+			player.health = 5;
 	}
 
-	void OnTriggerEnter2D (Collider2D coll) {
-		if (coll.gameObject.tag == "Player")
-			ApplyEffects (coll.gameObject.GetComponent<Player>());
+	protected override bool CanPickUp(Player player) {
+		return player.health < 5;
 	}
-
-	/// <summary>Override this with the desired functionality of the powerup.</summary>
-	public abstract void ApplyEffects (Player player);
 }
