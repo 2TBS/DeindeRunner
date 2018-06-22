@@ -29,6 +29,6 @@ public class Movement : MonoBehaviour {
         Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
 
         rb2d.AddForce (movement * speed);
-		print ("Ray: " + groundRay.point + "  Transform" + transform.position);
+		//print ("Ray: " + groundRay.point + "  Transform" + transform.position);
     }
 }
