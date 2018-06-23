@@ -249,6 +249,8 @@ MonoBehaviour:
   moveHorizontal: 0
   moveVertical: 0
   speed: 200
+  jumpForce: 500
+  stompForce: 150
   max_vel: 10
 --- !u!1 &1524832064
 GameObject:
@@ -1337,8 +1339,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 12, y: -2, z: 0}
     second:
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1350,7 +1352,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 77ed6472e441d294787c406482aad418, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: dac9bd131eb847842bfefd572223983d, type: 2}
-  - m_RefCount: 26
+  - m_RefCount: 25
     m_Data: {fileID: 11400000, guid: 3709d023194195c44af0e0d0834ae77b, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c6a06a4f908025d418ee0e33a0716e3a, type: 2}
@@ -1362,12 +1364,14 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 151a9662522e73542aa62ac4d5b55435, type: 2}
   - m_RefCount: 50
     m_Data: {fileID: 11400000, guid: a1bf4fd3a2cbe1c4e93d8046af2618e4, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 3a0df22c0b56dc24ebf672f1dad75c79, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 29fef3c45329bd34594902415950263f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 5ca3d0a906e549a4f80ca745c9fa85d0, type: 3}
-  - m_RefCount: 26
+  - m_RefCount: 25
     m_Data: {fileID: 21300000, guid: 27b70fe62ac634f4eb0745f3dfec5980, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e7e7bf838cbe2e943bebc2267907d5e9, type: 3}
@@ -1379,6 +1383,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 30b44444c54488c429524582411e5bb8, type: 3}
   - m_RefCount: 50
     m_Data: {fileID: 21300000, guid: 6a79c179ee54f5a469383f63824a6b50, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 2bba04d2fa56b51408f4a10d5d6818db, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 108
     m_Data:
